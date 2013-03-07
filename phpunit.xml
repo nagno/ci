@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php" stopOnFailure="false" colors="false" syntaxCheck="false" verbose="false" processIsolation="false" stderr="true">
+    <testsuite name="Unit">
+        <directory suffix="Test.php">tests/unit</directory>
+    </testsuite>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">public</directory>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="coverage-html" target="build/coverage" title="CI" charset="UTF-8" yui="true" highlight="true" lowUpperBound="35" highLowerBound="70"/>
+        <log type="coverage-clover" target="build/logs/clover.xml"/>
+        <log type="junit" target="build/logs/junit.xml" logIncompleteSkipped="true"/>
+    </logging>
+    <php>
+        <ini name="memory_limit" value="-1"/>
+        <ini name="date.timezone" value="Europe/London"/>
+        <ini name="session.use_cookies" value="0"/>
+    </php>
+</phpunit>
